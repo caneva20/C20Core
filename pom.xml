@@ -12,8 +12,20 @@
     <url>https://github.com/caneva20/C20Core</url>
 
     <properties>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <!-- Versioning properties -->
+        <project.outputName>${project.name}</project.outputName>
+        <project.versionCode>${project.version}</project.versionCode>
+        <project.finalNameBase>${project.outputName}-${project.version}</project.finalNameBase>
+
+        <!-- Plugin description file properties -->
+        <pluginDescription.name>${project.outputName}</pluginDescription.name>
+        <pluginDescription.version>${project.versionCode}</pluginDescription.version>
+        <pluginDescription.main>${project.groupId}.${project.artifactId}.${pluginDescription.name}</pluginDescription.main>
+        <pluginDescription.authors>caneva20</pluginDescription.authors>
     </properties>
 
     <distributionManagement>
@@ -47,7 +59,25 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
+            <!-- Compile and include classes -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -59,8 +89,27 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
+                            <!-- Don't create the reduced pom file, as we don't deploy the shaded jar -->
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <!-- Deploy the non shaded jar as main artifact -->
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <!-- Use the base jar name, to help server owners download the right jar -->
+                            <finalName>${project.finalNameBase}</finalName>
+
                             <minimizeJar>true</minimizeJar>
                             <filters>
+                                <!-- Ignore manifest signatures for shading the project into an uber-jar to fix -->
+                                <!-- "Invalid signature file digest for Manifest main attributes" -->
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.MF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+
                                 <filter>
                                     <artifact>me.caneva20:config-api</artifact>
                                     <includes>

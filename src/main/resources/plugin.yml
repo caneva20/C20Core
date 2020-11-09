@@ -1,4 +1,6 @@
-  name: C20Core
-  main: me.caneva20.c20core.Core
-  version: 1.0.1
-  api-version: 1.16
+name: ${pluginDescription.name}
+authors: [${pluginDescription.authors}]
+website: ${project.url}
+main: ${pluginDescription.main}
+version: ${pluginDescription.version}
+api-version: 1.16
