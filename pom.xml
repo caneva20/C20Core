@@ -8,6 +8,9 @@
     <artifactId>c20core</artifactId>
     <version>1.0.1</version>
 
+    <name>C20Core</name>
+    <url>https://github.com/caneva20/C20Core</url>
+
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
