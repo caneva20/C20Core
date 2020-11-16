@@ -24,7 +24,7 @@
         <!-- Plugin description file properties -->
         <pluginDescription.name>${project.outputName}</pluginDescription.name>
         <pluginDescription.version>${project.versionCode}</pluginDescription.version>
-        <pluginDescription.main>${project.groupId}.${project.artifactId}.${pluginDescription.name}</pluginDescription.main>
+        <pluginDescription.main>${project.groupId}.${project.artifactId}.Core</pluginDescription.main>
         <pluginDescription.authors>caneva20</pluginDescription.authors>
     </properties>
 
