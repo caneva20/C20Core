@@ -1,0 +1,47 @@
+tag:
+  opening-char: "["
+  closing-char: "] "
+
+  color:
+    primary: 6
+    detail: 7
+
+  debug:
+    prefix: "DEBUG"
+    color:
+      primary: b
+      detail: 7
+
+coloring:
+  success:
+    primary: a
+    secondary: 2
+    accent: 6
+    detail: 7
+
+  info:
+    primary: b
+    secondary: 3
+    accent: a
+    detail: 7
+
+  warning:
+    primary: e
+    secondary: 6
+    accent: c
+    detail: 7
+
+  error:
+    primary: c
+    secondary: 4
+    accent: 9
+    detail: 7
+
+  debug:
+    primary: d
+    secondary: 5
+    accent: 9
+    detail: 7
+
+#Used for auto file update, it is not intended to be changed
+file-version: 1
