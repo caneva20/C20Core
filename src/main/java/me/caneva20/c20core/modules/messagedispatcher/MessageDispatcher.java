@@ -4,26 +4,22 @@ import me.caneva20.c20core.modules.messagedispatcher.configurations.ParameterTok
 import me.caneva20.c20core.modules.messagedispatcher.parsers.DefaultTokenParser;
 import me.caneva20.c20core.modules.messagedispatcher.parsers.ParameterTokenParser;
 import me.caneva20.messagedispatcher.ColorSwatch;
-import me.caneva20.messagedispatcher.MessageLevel;
 import me.caneva20.messagedispatcher.Messaging;
 import me.caneva20.messagedispatcher.configurations.ColorConfiguration;
 import me.caneva20.messagedispatcher.configurations.DefaultConfiguration;
 import me.caneva20.messagedispatcher.configurations.TokenConfiguration;
 import me.caneva20.messagedispatcher.parsing.tokens.TagTokenParser;
-import me.caneva20.messagedispatcher.registries.ITokenRegistry;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Map;
 
 public final class MessageDispatcher {
 
     public static void configure(JavaPlugin plugin) {
-        MessageDispatcherConfiguration config = MessageDispatcherConfiguration.load(plugin);
-        Map<MessageLevel, ColorSwatch> colorMap = config.colorMap;
-        ColorSwatch fallbackSwatch = new ColorSwatch('a', '2', '6');
+        var config = MessageDispatcherConfiguration.load(plugin);
+        var colorMap = config.colorMap;
+        var fallbackSwatch = new ColorSwatch('a', '2', '6');
 
         Messaging.configure(ColorConfiguration.class, colorConfiguration -> {
-            for (MessageLevel level : colorMap.keySet()) {
+            for (var level : colorMap.keySet()) {
                 colorConfiguration.register(level, colorMap.get(level));
             }
         });
@@ -31,9 +27,9 @@ public final class MessageDispatcher {
         Messaging.configure(ParameterTokenConfiguration.class);
 
         Messaging.configure(DefaultConfiguration.class, defaultConfiguration -> {
-            TokenConfiguration tokenConfiguration = Messaging.get(TokenConfiguration.class);
+            var tokenConfiguration = Messaging.get(TokenConfiguration.class);
 
-            ITokenRegistry registry = defaultConfiguration.getTokenRegistry();
+            var registry = defaultConfiguration.getTokenRegistry();
 
             registry.setDefaultParser(new DefaultTokenParser(colorMap, fallbackSwatch));
 
@@ -55,7 +51,7 @@ public final class MessageDispatcher {
                     config.debugColor
             ));
 
-            ParameterTokenConfiguration parameterTokenConfiguration = Messaging.get(ParameterTokenConfiguration.class);
+            var parameterTokenConfiguration = Messaging.get(ParameterTokenConfiguration.class);
 
             registry.registerParser(
                     parameterTokenConfiguration.getTokenName(),

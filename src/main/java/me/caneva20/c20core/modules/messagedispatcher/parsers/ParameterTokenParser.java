@@ -21,7 +21,7 @@ public class ParameterTokenParser implements ITokenParser {
 
     @Override
     public String parse(@NotNull String content, MessageLevel messageLevel) {
-        ColorSwatch swatch = colorMap.getOrDefault(messageLevel, defaultColor);
+        var swatch = colorMap.getOrDefault(messageLevel, defaultColor);
 
         return String.format("&%s%s&%s", swatch.secondary, content, swatch.primary);
     }

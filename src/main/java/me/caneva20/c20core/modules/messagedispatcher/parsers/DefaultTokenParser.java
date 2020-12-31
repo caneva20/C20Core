@@ -18,7 +18,7 @@ public class DefaultTokenParser extends TokenParser {
     public String parse(
             @NotNull String content, MessageLevel messageLevel
     ) {
-        ColorSwatch swatch = getColor(messageLevel);
+        var swatch = getColor(messageLevel);
 
         return String.format("&%s%s", swatch.primary, content);
     }

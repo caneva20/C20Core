@@ -38,19 +38,19 @@ public class MessageDispatcherConfiguration {
     }
 
     public static MessageDispatcherConfiguration load(JavaPlugin plugin) {
-        Config config = new Config(plugin, CONFIG_FILE_NAME);
+        var config = new Config(plugin, CONFIG_FILE_NAME);
 
-        String opening = config.getString("tag.opening-char", "[");
-        String closing = config.getString("tag.closing-char", "] ");
+        var opening = config.getString("tag.opening-char", "[");
+        var closing = config.getString("tag.closing-char", "] ");
 
-        ColorSwatch color = getColor(config, "tag.color", 'f');
+        var color = getColor(config, "tag.color", 'f');
 
-        ColorSwatch debugColor = getColor(config, "tag.debug.color", 'f');
-        String debugPrefix = config.getString("tag.debug.prefix");
+        var debugColor = getColor(config, "tag.debug.color", 'f');
+        var debugPrefix = config.getString("tag.debug.prefix");
 
-        HashMap<MessageLevel, ColorSwatch> colorMap = new HashMap<>();
+        var colorMap = new HashMap<MessageLevel, ColorSwatch>();
 
-        for (MessageLevel level : MessageLevel.values()) {
+        for (var level : MessageLevel.values()) {
             colorMap.put(level, getColor(config, "coloring." + level.name().toLowerCase(), 'f'));
         }
 
@@ -58,10 +58,10 @@ public class MessageDispatcherConfiguration {
     }
 
     private static ColorSwatch getColor(Config config, String section, char defaultValue) {
-        String primaryColor = config.getString(section + ".primary", null);
-        String secondaryColor = config.getString(section + ".secondary", null);
-        String accentColor = config.getString(section + ".accent", null);
-        String detailColor = config.getString(section + ".detail", null);
+        var primaryColor = config.getString(section + ".primary", null);
+        var secondaryColor = config.getString(section + ".secondary", null);
+        var accentColor = config.getString(section + ".accent", null);
+        var detailColor = config.getString(section + ".detail", null);
 
         return new ColorSwatch(
                 primaryColor == null ? defaultValue : primaryColor.charAt(0),
