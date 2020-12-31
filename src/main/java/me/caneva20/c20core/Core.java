@@ -1,5 +1,6 @@
 package me.caneva20.c20core;
 
+import io.papermc.lib.PaperLib;
 import me.caneva20.c20core.modules.messagedispatcher.MessageDispatcher;
 import me.caneva20.messagedispatcher.Messaging;
 import me.caneva20.messagedispatcher.dispachers.IConsoleMessageDispatcher;
@@ -10,6 +11,8 @@ public class Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        PaperLib.suggestPaper(this);
+
         MessageDispatcher.configure(this);
 
         dispatcher = Messaging.createConsoleDispatcher(this, true);

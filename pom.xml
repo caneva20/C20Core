@@ -6,7 +6,7 @@
 
     <groupId>me.caneva20</groupId>
     <artifactId>c20core</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 
     <name>C20Core</name>
     <url>https://github.com/caneva20/C20Core</url>
@@ -41,6 +41,11 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
+
+        <repository>
+            <id>papermc</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -61,6 +66,13 @@
             <groupId>me.caneva20</groupId>
             <artifactId>message-dispatcher</artifactId>
             <version>1.0.3-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.papermc</groupId>
+            <artifactId>paperlib</artifactId>
+            <version>1.0.6</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -129,6 +141,12 @@
                                     </includes>
                                 </filter>
                             </filters>
+                            <relocations>
+                                <relocation>
+                                    <pattern>io.papermc.lib</pattern>
+                                    <shadedPattern>me.caneva20.paperlib</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
