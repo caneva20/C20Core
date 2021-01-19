@@ -1,156 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.caneva20</groupId>
-    <artifactId>c20core</artifactId>
-    <version>1.1.4</version>
+  <groupId>me.caneva20</groupId>
+  <artifactId>c20core</artifactId>
+  <version>1.1.4</version>
 
-    <name>C20Core</name>
-    <url>https://github.com/caneva20/C20Core</url>
+  <name>C20Core</name>
+  <url>https://github.com/caneva20/C20Core</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>11</java.version>
 
-        <!-- Versioning properties -->
-        <project.outputName>${project.name}</project.outputName>
-        <project.versionCode>${project.version}</project.versionCode>
-        <project.finalNameBase>${project.outputName}-${project.version}</project.finalNameBase>
+    <!-- Versioning properties -->
+    <project.outputName>${project.name}</project.outputName>
+    <project.versionCode>${project.version}</project.versionCode>
+    <project.finalNameBase>${project.outputName}-${project.version}</project.finalNameBase>
 
-        <!-- Plugin description file properties -->
-        <pluginDescription.name>${project.outputName}</pluginDescription.name>
-        <pluginDescription.version>${project.versionCode}</pluginDescription.version>
-        <pluginDescription.main>${project.groupId}.${project.artifactId}.Core</pluginDescription.main>
-        <pluginDescription.authors>caneva20</pluginDescription.authors>
-    </properties>
+    <!-- Plugin description file properties -->
+    <pluginDescription.name>${project.outputName}</pluginDescription.name>
+    <pluginDescription.version>${project.versionCode}</pluginDescription.version>
+    <pluginDescription.main>${project.groupId}.${project.artifactId}.Core</pluginDescription.main>
+    <pluginDescription.authors>caneva20</pluginDescription.authors>
+  </properties>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>caneva20</name>
-            <url>https://maven.pkg.github.com/caneva20/C20Core</url>
-        </repository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>caneva20</name>
+      <url>https://maven.pkg.github.com/caneva20/C20Core</url>
+    </repository>
+  </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
+  <repositories>
+    <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
 
-        <repository>
-            <id>papermc</id>
-            <url>https://papermc.io/repo/repository/maven-public/</url>
-        </repository>
-    </repositories>
+    <repository>
+      <id>papermc</id>
+      <url>https://papermc.io/repo/repository/maven-public/</url>
+    </repository>
+  </repositories>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.16.3-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>1.16.3-R0.1-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>me.caneva20</groupId>
-            <artifactId>config-api</artifactId>
-            <version>1.0.1</version>
-        </dependency>
+    <dependency>
+      <groupId>me.caneva20</groupId>
+      <artifactId>config-api</artifactId>
+      <version>1.0.1</version>
+    </dependency>
 
-        <dependency>
-            <groupId>me.caneva20</groupId>
-            <artifactId>message-dispatcher</artifactId>
-            <version>1.2.1</version>
-        </dependency>
+    <dependency>
+      <groupId>me.caneva20</groupId>
+      <artifactId>message-dispatcher</artifactId>
+      <version>1.2.1</version>
+    </dependency>
 
-        <dependency>
-            <groupId>io.papermc</groupId>
-            <artifactId>paperlib</artifactId>
-            <version>1.0.6</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <dependency>
+      <groupId>io.papermc</groupId>
+      <artifactId>paperlib</artifactId>
+      <version>1.0.6</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/resources/</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources/</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
 
-        <plugins>
-            <!-- Compile and include classes -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
+    <plugins>
+      <!-- Compile and include classes -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <!-- Don't create the reduced pom file, as we don't deploy the shaded jar -->
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <!-- Deploy the non shaded jar as main artifact -->
-                            <shadedArtifactAttached>true</shadedArtifactAttached>
-                            <!-- Use the base jar name, to help server owners download the right jar -->
-                            <finalName>${project.finalNameBase}</finalName>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <!-- Don't create the reduced pom file, as we don't deploy the shaded jar -->
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <!-- Deploy the non shaded jar as main artifact -->
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <!-- Use the base jar name, to help server owners download the right jar -->
+              <finalName>${project.finalNameBase}</finalName>
 
-                            <minimizeJar>true</minimizeJar>
-                            <filters>
-                                <!-- Ignore manifest signatures for shading the project into an uber-jar to fix -->
-                                <!-- "Invalid signature file digest for Manifest main attributes" -->
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.MF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
+              <minimizeJar>true</minimizeJar>
+              <filters>
+                <!-- Ignore manifest signatures for shading the project into an uber-jar to fix -->
+                <!-- "Invalid signature file digest for Manifest main attributes" -->
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.MF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
 
-                                <filter>
-                                    <artifact>me.caneva20:config-api</artifact>
-                                    <includes>
-                                        <include>**</include>
-                                    </includes>
-                                </filter>
-                                <filter>
-                                    <artifact>me.caneva20:message-dispatcher</artifact>
-                                    <includes>
-                                        <include>**</include>
-                                    </includes>
-                                </filter>
-                            </filters>
-                            <relocations>
-                                <relocation>
-                                    <pattern>io.papermc.lib</pattern>
-                                    <shadedPattern>me.caneva20.paperlib</shadedPattern>
-                                </relocation>
-                            </relocations>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+                <filter>
+                  <artifact>me.caneva20:config-api</artifact>
+                  <includes>
+                    <include>**</include>
+                  </includes>
+                </filter>
+                <filter>
+                  <artifact>me.caneva20:message-dispatcher</artifact>
+                  <includes>
+                    <include>**</include>
+                  </includes>
+                </filter>
+              </filters>
+              <relocations>
+                <relocation>
+                  <pattern>io.papermc.lib</pattern>
+                  <shadedPattern>me.caneva20.paperlib</shadedPattern>
+                </relocation>
+              </relocations>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
