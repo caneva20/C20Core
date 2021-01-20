@@ -48,14 +48,12 @@
     </repository>
 
     <repository>
-      <id>github</id>
-      <name>GitHub caneva20 Apache Maven Packages</name>
+      <id>config-api</id>
       <url>https://maven.pkg.github.com/caneva20/ConfigAPI</url>
     </repository>
 
     <repository>
-      <id>github</id>
-      <name>GitHub caneva20 Apache Maven Packages</name>
+      <id>message-dispatcher</id>
       <url>https://maven.pkg.github.com/caneva20/MessageDispatcher</url>
     </repository>
   </repositories>
