@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/me.caneva20/c20core.svg)](https://jitpack.io/#me.caneva20/c20core)
+[![](https://jitpack.io/v/caneva20/C20Core.svg)](https://jitpack.io/#caneva20/C20Core)
 
 # Installing
 
